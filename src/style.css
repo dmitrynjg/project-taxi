@@ -1,0 +1,14 @@
+*{
+margin:0;
+padding:0;
+}
+.content{
+  display: flex;
+}
+
+#map{
+  width:50vw;
+  height:100vh;
+  left:0;
+  top:0;
+}

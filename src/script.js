@@ -1,3 +1,4 @@
+"use strict";
 if (navigator.geolocation) {
   var Options = {
     enableHighAccuracy: true,
@@ -17,13 +18,18 @@ if (navigator.geolocation) {
 
   navigator.geolocation.getCurrentPosition(success, error, Options);
 }
+
 ymaps.ready(init);
 function init(latitude, longitude) {
-  var placeMark1, carPlaceMark, coordsBegin, coordsEnd; //маркеры
+  var placeMark1, coordsBegin, coordsEnd; //маркеры
   var myMap = new ymaps.Map("map", {
     center: [latitude, longitude],
     zoom: 16
   });
+  
+  var suggestView1 = new ymaps.SuggestView('suggest1');
+
+
   myMap.events.add("click", function(e) {
     if (coordsBegin === undefined) {
       placeMark1 = new ymaps.Placemark(e.get("coords"), {
@@ -42,15 +48,14 @@ function init(latitude, longitude) {
             { type: "wayPoint", point: coordsEnd }
           ],
           {
-            multiRoute: true
+            multiRoute: false
           }
         )
         .done(
           function(route) {
             route.options.set("mapStateAutoApply", true);
             myMap.geoObjects.add(route);
-            var coords = route.getWayPoints();
-            console.log(route);
+            console.log(route.getLength());
           },
           function(err) {
             throw err;
