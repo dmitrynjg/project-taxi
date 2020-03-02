@@ -12,3 +12,15 @@ padding:0;
   left:0;
   top:0;
 }
+.content-info-item input{
+  width:100vw;
+}
+.ymaps-2-1-75-suggest-item{
+  background: #111111;
+  color:#fff;
+}
+
+.ymaps-2-1-75-suggest-item:hover{
+ background:#fff;
+ color:#1a1a1a;
+}
