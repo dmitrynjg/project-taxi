@@ -9,7 +9,10 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    
+    <script
+    src="https://api-maps.yandex.ru/2.1/?apikey=3811dd5f-f8de-494b-8363-4c7bd519d44d&lang=ru_RU"
+    type="text/javascript"
+  ></script>
     <link rel="stylesheet" href="style.css">
   </head>
 
@@ -19,15 +22,17 @@
         <div id="map"></div>
       </div>
       <div class="content-info">
-        <div class="content-info-item"><input type="text" placeholder="Откуда" id="from" value="Чавайна"></div>
+        <div class="content-info-item"><input type="text" placeholder="Откуда" id="from"></div>
         <div class="content-info-item"><input type="text" placeholder="Куда" id="to"></div>
-        
+        <div class="content-info-item">
+          <select id="select_car">
+            <option value="0">Эконом</option>
+            <option value="1">Комфорт</option>
+            <option value="2">Детский</option>
+          </select>
+        </div>
       </div>
     </div>
-    <script
-      src="https://api-maps.yandex.ru/2.1/?apikey=3811dd5f-f8de-494b-8363-4c7bd519d44d&lang=ru_RU"
-      type="text/javascript"
-    ></script>
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="app.js"></script>
   </body>
 </html>

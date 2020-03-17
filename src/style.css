@@ -1,26 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 *{
 margin:0;
 padding:0;
 }
 .content{
   display: flex;
+  font-family: 'Roboto', sans-serif;
 }
 
 #map{
-  width:50vw;
+  width:100vw;
   height:100vh;
   left:0;
   top:0;
 }
+.content-info{
+ position: absolute;
+  width:30%;
+  height:auto;
+  background:#fff;
+  margin-top:20px;
+  margin-left:20px;
+}
+.content-info-item{
+  width:80%;
+  margin: auto;
+}
+.content-info-item:nth-child(1){
+  margin-top:30px;
+}
+.content-info-item:last-child{
+  margin-bottom:20px;
+}
 .content-info-item input{
-  width:100vw;
+width:100%;
+border:0;
+border-radius:3px;
+outline:none;
+padding:5px;
+background-color:#f5f5f5;
+font-family: 'Roboto', sans-serif;
+}
+
+.content-info-item select{
+ outline: none;
+ border:0;
+ padding:5px;
+ background:#f5f5f5;
 }
 .ymaps-2-1-75-suggest-item{
-  background: #111111;
-  color:#fff;
+  background: #f5f5f5;
+  color:#1a1a1a;
 }
 
 .ymaps-2-1-75-suggest-item:hover{
- background:#fff;
- color:#1a1a1a;
+ background:#fff!important;
+ color:#1a1a1a!important;
 }
+.content-info-preview-order{
+  margin:10px auto;
+}
+.content-info-item-btn{
+ font-family: 'Roboto', sans-serif;
+ background: #e2e2e2;
+ outline: none;
+ width:50%;
+ padding:7px;
+ border:0;
+ cursor: pointer;
+}
+.content-info-item-btn-ok{
+ background:#ffc34b;
+}
+.content-info-item-btn-ok:hover{
+  background:#ffcc67;
+ }
+ .content-info-item-btn-cancel:hover{
+   background: #dedbdb;
+ }
