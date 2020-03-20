@@ -1,5 +1,5 @@
 'use strict';
-//import './style.css';
+import './style.css';
 
 window.onload = initApp;
 
