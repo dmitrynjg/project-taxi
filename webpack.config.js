@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: __dirname + "/src/app.js",
@@ -15,8 +16,7 @@ module.exports = {
         MiniCssExtractPlugin.loader,
         'css-loader'
       ]
-    }
-    ]
+    }]
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -33,6 +33,9 @@ module.exports = {
     new HtmlReplaceWebpackPlugin({
       pattern: '<script src="script.js"></script>',
       replacement: ''
-    })
+    }),
+    new CopyPlugin([
+      { from: 'src/image', to: 'image' }
+    ])
   ]
-}; 
+};

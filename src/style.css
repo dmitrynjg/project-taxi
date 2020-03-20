@@ -1,80 +1,155 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-*{
-margin:0;
-padding:0;
-}
-.content{
-  display: flex;
-  font-family: 'Roboto', sans-serif;
+@import url('https://use.fontawesome.com/releases/v5.0.13/css/all.css');
+* {
+    margin: 0;
+    padding: 0;
 }
 
-#map{
-  width:100vw;
-  height:100vh;
-  left:0;
-  top:0;
-}
-.content-info{
- position: absolute;
-  width:30%;
-  height:auto;
-  background:#fff;
-  margin-top:20px;
-  margin-left:20px;
-}
-.content-info-item{
-  width:80%;
-  margin: auto;
-}
-.content-info-item:nth-child(1){
-  margin-top:30px;
-}
-.content-info-item:last-child{
-  margin-bottom:20px;
-}
-.content-info-item input{
-width:100%;
-border:0;
-border-radius:3px;
-outline:none;
-padding:5px;
-background-color:#f5f5f5;
-font-family: 'Roboto', sans-serif;
+.content {
+    display: flex;
+    font-family: 'Roboto', sans-serif;
 }
 
-.content-info-item select{
- outline: none;
- border:0;
- padding:5px;
- background:#f5f5f5;
-}
-.ymaps-2-1-75-suggest-item{
-  background: #f5f5f5;
-  color:#1a1a1a;
+#map {
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
 }
 
-.ymaps-2-1-75-suggest-item:hover{
- background:#fff!important;
- color:#1a1a1a!important;
+.content-info {
+    position: absolute;
+    width: 30%;
+    height: auto;
+    background: #fff;
+    margin-top: 60px;
+    margin-left: 50px;
 }
-.content-info-preview-order{
-  margin:10px auto;
+
+.content-info-item {
+    width: 80%;
+    margin: auto;
 }
-.content-info-item-btn{
- font-family: 'Roboto', sans-serif;
- background: #e2e2e2;
- outline: none;
- width:50%;
- padding:7px;
- border:0;
- cursor: pointer;
+
+.content-info-item:nth-child(1) {
+    margin-top: 20px;
 }
-.content-info-item-btn-ok{
- background:#ffc34b;
+
+.content-info-item:last-child {
+    margin-bottom: 20px;
 }
-.content-info-item-btn-ok:hover{
-  background:#ffcc67;
- }
- .content-info-item-btn-cancel:hover{
-   background: #dedbdb;
- }
+
+.content-info-item-address {
+    display: flex;
+    background-color: #f5f5f5;
+    padding: 3px;
+}
+
+.content-info-item input {
+    width: 100%;
+    border: 0;
+    border-radius: 3px;
+    outline: none;
+    padding: 5px;
+    background-color: transparent;
+    font-family: 'Roboto', sans-serif;
+}
+
+.content-info-item-address-icon::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin: 5px;
+    content: "\f3c5";
+}
+
+.select-car {
+    display: flex;
+    background: #f5f5f5;
+    margin-top: 4px;
+}
+
+.content-info-item span.select-car-icon::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin: 10px;
+    content: "\f1b9";
+}
+
+.content-info-item select {
+    width: 100%;
+    outline: none;
+    border: 0;
+    padding: 5px;
+    padding-left: 3px;
+    background: transparent;
+    font-family: 'Roboto' sans-serif;
+}
+
+.ymaps-2-1-75-suggest-item {
+    background: #f5f5f5;
+    color: #1a1a1a;
+}
+
+.ymaps-2-1-75-suggest-item:hover {
+    background: #fff!important;
+    color: #1a1a1a!important;
+}
+
+.content-info-item.order {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+}
+
+.content-info-preview-order {
+    margin: 10px auto;
+    width: 100%;
+}
+
+.info-order-driver-icon::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin: 5px;
+}
+
+.info-order-driver-icon.user::after {
+    content: "\f007";
+}
+
+.info-order-driver-icon.car::after {
+    content: "\f1b9";
+}
+
+.info-order-driver-icon.phone::after {
+    content: "\f3cd";
+}
+
+.info-order-driver-icon.numcar::after {
+    content: "\f129";
+}
+
+.content-info-item-btns {
+    display: flex;
+}
+
+.content-info-item-btn {
+    font-family: 'Roboto', sans-serif;
+    background: #e2e2e2;
+    outline: none;
+    width: 100%;
+    padding: 7px;
+    border: 0;
+    cursor: pointer;
+}
+
+.content-info-item-btn-order {
+    background: #ffc34b;
+}
+
+.content-info-item-btn-order:hover {
+    background: #ffcc67;
+}
+
+.content-info-item-btn-cancel:hover {
+    background: #dedbdb;
+}
