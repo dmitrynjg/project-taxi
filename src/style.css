@@ -55,11 +55,15 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.content-info-item-address-icon {
+    margin: 5px;
+}
+
 .content-info-item-address-icon::after {
-    font-family: "Font Awesome 5 Free";
+    font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     margin: 5px;
-    content: "\f3c5";
+    content: '\f3c5';
 }
 
 .select-car {
@@ -68,21 +72,29 @@
     margin-top: 4px;
 }
 
+.content-info-item span.select-car-icon {
+    margin: 5px;
+    margin-right: -5px;
+}
+
+.content-info-item select option {
+    height: 30px;
+}
+
 .content-info-item span.select-car-icon::after {
-    font-family: "Font Awesome 5 Free";
+    font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     margin: 10px;
-    content: "\f1b9";
+    content: '\f1b9';
 }
 
 .content-info-item select {
     width: 100%;
     outline: none;
     border: 0;
-    padding: 5px;
-    padding-left: 3px;
     background: transparent;
     font-family: 'Roboto' sans-serif;
+    text-indent: 5px;
 }
 
 .ymaps-2-1-75-suggest-item {
@@ -91,8 +103,8 @@
 }
 
 .ymaps-2-1-75-suggest-item:hover {
-    background: #fff!important;
-    color: #1a1a1a!important;
+    background: #fff !important;
+    color: #1a1a1a !important;
 }
 
 .content-info-item.order {
@@ -107,25 +119,25 @@
 }
 
 .info-order-driver-icon::after {
-    font-family: "Font Awesome 5 Free";
+    font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     margin: 5px;
 }
 
 .info-order-driver-icon.user::after {
-    content: "\f007";
+    content: '\f007';
 }
 
 .info-order-driver-icon.car::after {
-    content: "\f1b9";
+    content: '\f1b9';
 }
 
 .info-order-driver-icon.phone::after {
-    content: "\f3cd";
+    content: '\f3cd';
 }
 
 .info-order-driver-icon.numcar::after {
-    content: "\f129";
+    content: '\f129';
 }
 
 .content-info-item-btns {

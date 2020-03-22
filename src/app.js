@@ -1,5 +1,5 @@
 'use strict';
-import './style.css';
+//import './style.css';
 
 window.onload = initApp;
 
@@ -51,11 +51,6 @@ function initApp() {
     }
     static get observedAttributes() {
       return ['name', 'color', 'numberplate', 'car', 'phone'];
-    }
-
-    attributeChangedCallback(name, oldValue, newValue) {
-      // вызывается при изменении одного из перечисленных выше атрибутов
-      this.render();
     }
 
   }
