@@ -2,88 +2,14 @@
 import './style.css';
 
 window.onload = initApp;
+var ButtonOrder = require('./template/button.js');
+var PreviewOrder = require('./template/preview-order.js');
+var InfoOrder = require('./template/info-order.js');
 
 function initApp() {
-  class PreviewOrder extends HTMLElement {
-    constructor() {
-      super();
-    }
-    render() {
-      this.innerHTML =
-        `<div class='content-info-preview-order'>` +
-        `<h3>О маршруте</h3>` +
-        `<div class='content-info-preview-order-item'>Цена: ` +
-        `<b>${this.getAttribute('price')}</b> &#8381; ${this.getAttribute('typecar')}</div>` +
-        `<div class ='content-info-preview-order-item'>Расстояние: <b>${this.getAttribute('lengthText')}</b></div>` +
-        `<div class ='content-info-preview-order-item'>Примерное время поездки: <b>${this.getAttribute('time')}</b></div>` +
-        `<button-order preview = "true"></button-order>` +
-        `</div>`;
-    }
-    connectedCallback() {
-      this.render();
-    }
-    static get observedAttributes() {
-      return ['price', 'lengthText', 'time', 'typecar'];
-    }
 
-    attributeChangedCallback(name, oldValue, newValue) {
-      // вызывается при изменении одного из перечисленных выше атрибутов
-      this.render();
-    }
-  }
-  class InfoOrder extends HTMLElement {
-    constructor() {
-      super();
-    }
-    render() {
-      this.innerHTML =
-        `<div class="content-info-order-info">` +
-        `<h3>О водителе</h3>` +
-        `<div class="content-info-order-driver-name"><span class="info-order-driver-icon user"></span>Имя: <b>${this.getAttribute('name')}</b></div>` +
-        `<div class="content-info-order-car">` +
-        `<div class="content-info-order-carInfo"><span class="info-order-driver-icon car"></span>Авто: <b>${this.getAttribute('color')} ${this.getAttribute('car')}</b></div>` +
-        `<div class="content-info-order-carNumberplate"><span class="info-order-driver-icon numcar"></span>Номер авто: <b>${this.getAttribute('numberplate')}</b></div> </div>` +
-        `<div class="content-info-order-car-driverPhone"><span class="info-order-driver-icon phone"></span>Номер телефона водителя: <b>${this.getAttribute('phone')}</b></div>` +
-        `</div>`;
-    }
-    connectedCallback() {
-      this.render();
-    }
-    static get observedAttributes() {
-      return ['name', 'color', 'numberplate', 'car', 'phone'];
-    }
 
-  }
-  class ButtonOrder extends HTMLElement {
-    constructor() {
-      super();
-    }
-    render() {
-      let boolPreview = this.getAttribute('preview') === 'true'
-      if (boolPreview) {
-        this.innerHTML =
-          `<div class ='content-info-item-btns'> <button class='content-info-item-btn content-info-item-btn-order'>Закзать</button>` +
-          `<button class='content-info-item-btn content-info-item-btn-cancel'>Отмена</button>` +
-          `</div> `;
-      } else {
-        this.innerHTML =
-          `<div class ='content-info-item-btns'>` +
-          `<button class='content-info-item-btn content-info-item-btn-cancel'>Отмена</button>` +
-          `</div> `;
-      }
-    }
-    connectedCallback() {
-      this.render();
-    }
-    static get observedAttributes() {
-      return ['preview'];
-    }
 
-    attributeChangedCallback(name, oldValue, newValue) {
-      // вызывается при изменении одного из перечисленных выше атрибутов
-      this.render();
-    }
-  }
   customElements.define('preview-order', PreviewOrder);
   customElements.define('info-order', InfoOrder);
   customElements.define('button-order', ButtonOrder);
@@ -112,42 +38,7 @@ function initApp() {
     var longitude = longitudeArg;
     var placeMark1, routeBegin, routeEnd, mapRoute, mapRouteInfo, priceOrder, typeCar, carPlaceMark;
 
-    var drivers = [{
-        driverName: 'Игорь',
-        driverCar: 'Wolksvagen Polo',
-        driverCarColor: 'Красный',
-        driverCarNumberplate: '12ru В228ИД',
-        driverPhone: '+79872115577'
-      },
-      {
-        driverName: 'Сергей',
-        driverCar: 'Hyundai Solaris',
-        driverCarColor: 'Серый',
-        driverCarNumberplate: '21rus Б109ИС',
-        driverPhone: '+79348714555'
-      },
-      {
-        driverName: 'Андрей',
-        driverCar: 'Toyota Camry',
-        driverCarColor: 'Черный',
-        driverCarNumberplate: '12rus С447ИД',
-        driverPhone: '+79371177384'
-      },
-      {
-        driverName: 'Константин',
-        driverCar: 'Skoda Octavia',
-        driverCarColor: 'Белая',
-        driverCarNumberplate: '12rus Б991ЭМ',
-        driverPhone: '+79841455281'
-      },
-      {
-        driverName: 'Данил',
-        driverCar: 'Lada Granta',
-        driverCarColor: 'Серая',
-        driverCarNumberplate: '12rus П321СТ',
-        driverPhone: '+79993315690'
-      }
-    ];
+    var drivers = require('./drivers.json');
     if (myMap !== undefined) myMap.destroy();
 
     var myMap = new ymaps.Map('map', {

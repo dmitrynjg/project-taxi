@@ -31,7 +31,7 @@ module.exports = {
       replacement: '<link rel="stylesheet" href="app.min.css">'
     }),
     new HtmlReplaceWebpackPlugin({
-      pattern: '<script src="script.js"></script>',
+      pattern: '<script src="app.js"></script>',
       replacement: ''
     }),
     new CopyPlugin([
