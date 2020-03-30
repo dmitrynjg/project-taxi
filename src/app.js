@@ -2,14 +2,11 @@
 import './style.css';
 
 window.onload = initApp;
-var ButtonOrder = require('./template/button.js');
-var PreviewOrder = require('./template/preview-order.js');
-var InfoOrder = require('./template/info-order.js');
 
 function initApp() {
-
-
-
+  var ButtonOrder = require('./webcomponents/button.js');
+  var PreviewOrder = require('./webcomponents/preview-order.js');
+  var InfoOrder = require('./webcomponents/info-order.js');
   customElements.define('preview-order', PreviewOrder);
   customElements.define('info-order', InfoOrder);
   customElements.define('button-order', ButtonOrder);
