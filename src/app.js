@@ -1,6 +1,5 @@
 'use strict';
 import './style.css';
-
 window.onload = initApp;
 
 function initApp() {
@@ -214,3 +213,4 @@ function initApp() {
 
   ymaps.ready(initMap);
 }
+module.exports = initApp;
