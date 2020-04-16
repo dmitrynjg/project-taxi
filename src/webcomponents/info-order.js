@@ -1,5 +1,5 @@
 'use strict';
-module.exports = class InfoOrder extends HTMLElement {
+class InfoOrder extends HTMLElement {
   constructor() {
     super();
   }
@@ -22,3 +22,4 @@ module.exports = class InfoOrder extends HTMLElement {
   }
 
 }
+module.exports = customElements.define('info-order', InfoOrder);

@@ -1,11 +1,10 @@
 'use strict';
-module.exports = class ButtonOrder extends HTMLElement {
+class ButtonOrder extends HTMLElement {
   constructor() {
     super();
   }
   render() {
-    let boolPreview = this.getAttribute('preview') === 'true'
-    if (boolPreview) {
+    if (this.getAttribute('preview') === 'true'){
       this.innerHTML =
         `<div class ='content-info-item-btns'> <button class='content-info-item-btn content-info-item-btn-order'>Закзать</button>` +
         `<button class='content-info-item-btn content-info-item-btn-cancel'>Отмена</button>` +
@@ -29,3 +28,4 @@ module.exports = class ButtonOrder extends HTMLElement {
     this.render();
   }
 }
+module.exports = customElements.define('button-order', ButtonOrder);

@@ -12,10 +12,13 @@ module.exports = {
   module: {
     rules: [{
       test: /\.css$/,
-      use: [
-        MiniCssExtractPlugin.loader,
-        'css-loader'
-      ]
+      use: ['style-loader', MiniCssExtractPlugin.loader, {
+        loader: 'css-loader',
+        options: { sourceMap: false }
+      }, {
+        loader: 'postcss-loader',
+        options: { sourceMap: false, config: { path: 'postcss.config.js' } }
+      }]
     }]
   },
   plugins: [
@@ -31,8 +34,8 @@ module.exports = {
       replacement: '<link rel="stylesheet" href="app.min.css">'
     }),
     new HtmlReplaceWebpackPlugin({
-      pattern: '<script src="app.js"></script>',
-      replacement: ''
+      pattern: '<script type="text/javascript" src="app.js"></script>',
+      replacement: '\n \n'
     }),
     new CopyPlugin([
       { from: 'src/image', to: 'image' }

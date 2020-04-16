@@ -1,5 +1,5 @@
 'use strict';
-module.exports = class PreviewOrder extends HTMLElement {
+class PreviewOrder extends HTMLElement {
   constructor() {
     super();
   }
@@ -26,3 +26,4 @@ module.exports = class PreviewOrder extends HTMLElement {
     this.render();
   }
 }
+module.exports = customElements.define('preview-order', PreviewOrder);

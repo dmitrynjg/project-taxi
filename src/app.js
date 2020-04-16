@@ -2,39 +2,38 @@
 import './style.css';
 window.onload = initApp;
 
-function initApp() {
-  var ButtonOrder = require('./webcomponents/button.js');
-  var PreviewOrder = require('./webcomponents/preview-order.js');
-  var InfoOrder = require('./webcomponents/info-order.js');
-  customElements.define('preview-order', PreviewOrder);
-  customElements.define('info-order', InfoOrder);
-  customElements.define('button-order', ButtonOrder);
+function initApp(){
+  require('./webcomponents/button.js');
+  require('./webcomponents/preview-order.js');
+  require('./webcomponents/info-order.js');
+
+ 
 
   if (navigator.geolocation) {
-    var OptionsLocation = {
+    const optionsLocation = {
       enableHighAccuracy: true,
       timeout: 500,
       maximumAge: 0
     };
 
-    var locationLoad = pos => {
+    const locationLoad = pos => {
       initMap(pos.coords.latitude, pos.coords.longitude);
       document.querySelectorAll('div#map ymaps')[0].remove();
     };
 
-    var errorLocationLoad = err => {
+    const errorLocationLoad = err => {
       console.warn(`ERROR (${err.code}): ${err.message}`);
     };
     //Поиск местоположения пользователя
-    navigator.geolocation.getCurrentPosition(locationLoad, errorLocationLoad, OptionsLocation);
+    navigator.geolocation.getCurrentPosition(locationLoad, errorLocationLoad, optionsLocation);
   }
 
-  var initMap = (latitudeArg, longitudeArg) => {
+  function initMap(latitudeArg, longitudeArg){
     var latitude = latitudeArg;
     var longitude = longitudeArg;
-    var placeMark1, routeBegin, routeEnd, mapRoute, mapRouteInfo, priceOrder, typeCar, carPlaceMark;
+    var placeMark1, routeBegin, routeEnd, mapRoute, mapRouteInfo, priceOrder, carPlaceMark, typeCar;
 
-    var drivers = require('./drivers.json');
+    const drivers = require('./drivers.js');
     if (myMap !== undefined) myMap.destroy();
 
     var myMap = new ymaps.Map('map', {
@@ -44,8 +43,8 @@ function initApp() {
 
     //Эта функция для узнавание информации о адресе
     async function geocodeRequest(point) {
-      var myGeocoder = await ymaps.geocode(point, { result: 1 });
-      return myGeocoder.geoObjects.get(0).properties.getAll();
+      const geocoderResponse = await ymaps.geocode(point, { result: 1 });
+      return geocoderResponse.geoObjects.get(0).properties.getAll();
     }
 
     //Создание маршрута
@@ -77,9 +76,10 @@ function initApp() {
 
     function createPriceOrder(routeInfo) {
       let selectCar = document.querySelector('select#select_car');
-      if (selectCar.value === '0') typeCar = { title: 'Эконом', priceRatio: 1 };
-      if (selectCar.value === '1') typeCar = { title: 'Комфорт', priceRatio: 1.5 };
-      if (selectCar.value === '2') typeCar = { title: 'Детский', priceRatio: 1.35 };
+      const typeCarInfo = require('./typecar.js');
+      if (selectCar.value === '0') typeCar = typeCarInfo[0];
+      if (selectCar.value === '1') typeCar = typeCarInfo[1];
+      if (selectCar.value === '2') typeCar = typeCarInfo[2];
       return typeCar.priceRatio * 60 + Math.round(routeInfo) * 10;
     }
 
@@ -99,7 +99,7 @@ function initApp() {
 
         document.querySelector('.content-info-item:last-child').appendChild(infoOrderSelector);
         carPlaceMark = new ymaps.Placemark(routeBegin, {
-          balloonContent: 'Это красивая метка'
+          balloonContent: 'Это метка такси'
         }, {
           iconLayout: 'default#image',
           iconImageHref: 'image/taxi_icon.png',
@@ -213,4 +213,3 @@ function initApp() {
 
   ymaps.ready(initMap);
 }
-module.exports = initApp;
