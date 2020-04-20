@@ -31,7 +31,7 @@ function initApp(){
   function initMap(latitudeArg, longitudeArg){
     var latitude = latitudeArg;
     var longitude = longitudeArg;
-    var placeMark1, routeBegin, routeEnd, mapRoute, mapRouteInfo, priceOrder, carPlaceMark, typeCar;
+    var placeMark1,routeBegin,routeEnd, mapRoute, mapRouteInfo, priceOrder, carPlaceMark, typeCar;
 
     const drivers = require('./drivers.js');
     if (myMap !== undefined) myMap.destroy();
@@ -89,7 +89,7 @@ function initApp(){
         document.querySelector('.content-info-item-btn-cancel').onclick = cancelOrder;
         let indexDriver = Math.round(0 - 0.5 + Math.random() * drivers.length);
         let driver = drivers[indexDriver];
-
+        
         let infoOrderSelector = document.createElement('info-order');
         infoOrderSelector.setAttribute('name', driver.driverName);
         infoOrderSelector.setAttribute('color', driver.driverCarColor);
@@ -104,6 +104,7 @@ function initApp(){
           iconLayout: 'default#image',
           iconImageHref: 'image/taxi_icon.png',
           iconImageSize: [30, 30],
+          iconImageOffset: [-5, -38]
         });
         myMap.geoObjects.add(carPlaceMark);
       }

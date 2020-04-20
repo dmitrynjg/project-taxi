@@ -3,6 +3,7 @@
   "version": "1.0.9",
   "description": "",
   "main": "index.js",
+  "homepage": "https://dmitrynjg.github.io/project-taxi",
   "watch": {
     "validate-html-build": {
       "patterns": [
@@ -28,7 +29,7 @@
     "postinstall": "npm i -g live-server css-validator html-validate jshint",
     "build": "webpack --mode production",
     "validate-build": "npm-run-all --parallel validate-css validate-html jshint build",
-    "test": "mocha"
+    "deploy": "gh-pages -d build"
   },
   "author": "Kalagin Ivan",
   "license": "ISC",
@@ -39,6 +40,7 @@
     "chai": "^4.2.0",
     "copy-webpack-plugin": "^5.1.1",
     "cssnano": "^4.1.10",
+    "gh-pages": "^2.2.0",
     "html-loader": "^0.5.5",
     "html-replace-webpack-plugin": "^2.5.6",
     "html-webpack-plugin": "^3.2.0",
